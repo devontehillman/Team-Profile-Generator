@@ -2,31 +2,39 @@ const inquirer = require('inquirer')
 //const fs = require('')
 
 class Employee {
-    constructor(name, id, email, role){
+    constructor(name, id, email){
     this.name = name; 
     this.id = id; 
-    this.email = email;
-    this.role = role;
+     this.email = email;
+    // this.role = role;
     }
 
-    //name = getName(){};
-    // id = getId(){};
-    // email = getEmail(){};
-    // role = getRole(){};
+    get getName(){
+    return this.name
+    };
+    get getId(){
+    return this.id
+    };
+    getEmail(){
+    return this.email    
+    };
+    static getRole(){
+        return "Employee"
+    };
 }
+module.exports = Employee;
 
+// inquirer.prompt([
+//     {
+//     type: 'input',
+//     name: 'name',
+//     message: 'Enter Employees name',
+//     },
+// ]).then((data) =>{
+//     let e = []
+// //    let e[i] = new Employee
 
-inquirer.prompt([
-    {
-    type: 'input',
-    name: 'name',
-    message: 'Enter Employees name',
-    },
-]).then((data) =>{
-    let e = []
-//    let e[i] = new Employee
-
-});
+// });
 
 
 // class Manager extends  Employee (){
