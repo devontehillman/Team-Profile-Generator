@@ -9,17 +9,18 @@ class Employee {
     // this.role = role;
     }
 
-    get getName(){
+    getName(){
     return this.name
     };
-    get getId(){
+    getId(){
     return this.id
     };
     getEmail(){
     return this.email    
     };
-    static getRole(){
-        return "Employee"
+    getRole(){
+    var role = 'Employee';
+    return role
     };
 }
 module.exports = Employee;
