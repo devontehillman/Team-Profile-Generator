@@ -2,10 +2,11 @@ const Employee = require("../employee")
 const Manager = require("../manager")
 
 describe("Manager", () => {
+
     describe("Initialize New Manager", () => {
         it("should return new Manager", () => {
-            let obj = new Manager();
-            expect(obj).toEqual(new Manager())
+            const manager = new Manager();
+            expect(manager).toEqual(new Manager())
         });
     })
     
