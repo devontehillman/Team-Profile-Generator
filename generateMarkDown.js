@@ -5,17 +5,18 @@ const Intern = require('./lib/intern');
 const Script = require('./script')
 
 //take in array of objects
-const employeePool = []
-const newManager = new Manager('Steve','12','email','33d')
-const newIntern = new Intern('Sara','13','email','GVSU')
-const newEngineer = new Engineer('Lewis','14','email','devontehillman')
-employeePool.push(newManager)
-employeePool.push(newIntern)
-employeePool.push(newEngineer)
-// console.log(employeePool[0])
-// console.log(employeePool[1])
-// console.log(employeePool[2])
+const employeePool = Script
 //console.log(employeePool)
+// const newManager = new Manager('Steve','12','email','33d')
+// const newIntern = new Intern('Sara','13','email','GVSU')
+// const newEngineer = new Engineer('Lewis','14','email','devontehillman')
+// employeePool.push(newManager)
+// employeePool.push(newIntern)
+// employeePool.push(newEngineer)
+// // console.log(employeePool[0])
+// // console.log(employeePool[1])
+// // console.log(employeePool[2])
+// //console.log(employeePool)
 
 function generateCards(){
 
@@ -35,7 +36,7 @@ for (i = 0; i < employeePool.length; i++){
         <p class="card-text">${specialID(employeePool[i])}</p>
     </div>
     </div>
-  </div>`)
+    </div>`)
 } 
 return arryToReturn.join('')
 }
@@ -141,12 +142,12 @@ function generateHTML(){
     </html>
     `
 }
-console.log(typeof(generateCards()))
 
-const file =generateHTML()
-console.log(file)
 
+const file = generateHTML()
 
 fs.writeFile('Index.html', file , (err) =>
     err ? console.log(err) : console.log('Success!'));
 module.exports = generateHTML;
+
+
