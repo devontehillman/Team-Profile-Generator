@@ -9,10 +9,6 @@ const generateMarkDown = require("./generateMarkDown");
 const employeePool = [];
 let onOff = true;
 
-//prompt for user input
-
-// what type of employee would add
-
 // prompts for the specific employees
 function newEmployee() {
     inquirer
@@ -76,6 +72,7 @@ function setInfoManager() {
             restart();
         });
 }
+
 function setInfoEngineer() {
     inquirer
         .prompt([
@@ -138,8 +135,7 @@ function setInfoIntern() {
         ])
         .then((data) => {
             const intern = new Intern(data.name, data.id, data.email, data.school);
-            employeePool.push(Intern);
-            console.log(employeePool);
+            employeePool.push(intern);
             restart();
         });
 }
@@ -168,11 +164,11 @@ function generateCards() {
     // render each card
     for (i = 0; i < employeePool.length; i++) {
         arryToReturn.push(
-            `<div class="col-md-4">
-    <div class="card text-black shadow">
-    <div class="card-header bg-primary text-white">
+    `<div class="col-md-4">
+    <div class="card text-black shadow indoCard">
+    <div class="card-header bg-dark text-white">
     ${employeePool[i].name}
-    <p class="card-text">${employeePool[i].getRole()}</p>
+    <p class="card-text ">${employeePool[i].getRole()}</p>
     </div>
     <div class="card-body">
         <p class="card-text">ID:${employeePool[i].id}</p>
@@ -226,48 +222,14 @@ function generateHTML() {
       </head>
     
       <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="index.html">Portfolio Title</a>
-    
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-    
-          <div
-            class="collapse navbar-collapse navbar-right"
-            id="navbarSupportedContent"
-          >
-            <ul class="nav navbar-nav navbar-right mr-auto"></ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html"
-                  >Home <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="portfolio.html">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Me</a>
-              </li>
-            </ul>
-          </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
+          <a class="navbar-brand" href="index.html">My Dev Team</a>
         </nav>
     
         <div class="container">
-          <div class="jumbotron">
             <div class="row Justify-content-center" id="cards">
           ${generateCards()}
           </div>
-        </div>
     
         <!-- <footer>
           <nav class="navbar navbar-expand-lg navbar-dark bg-dark">

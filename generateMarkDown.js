@@ -63,7 +63,7 @@ function generateHTML(){
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio Blank</title>
+        <title>My Dev Team</title>
     
         <link
           rel="stylesheet"
@@ -80,38 +80,13 @@ function generateHTML(){
     
       <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a class="navbar-brand" href="index.html">Portfolio Title</a>
-    
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+          <a class="navbar-brand" href="index.html">My Dev Team</a>
     
           <div
             class="collapse navbar-collapse navbar-right"
             id="navbarSupportedContent"
           >
-            <ul class="nav navbar-nav navbar-right mr-auto"></ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li class="nav-item active">
-                <a class="nav-link" href="index.html"
-                  >Home <span class="sr-only">(current)</span></a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="portfolio.html">Portfolio</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact Me</a>
-              </li>
-            </ul>
+        <ul class="nav navbar-nav navbar-right mr-auto"></ul>
           </div>
         </nav>
     

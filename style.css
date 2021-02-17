@@ -4,7 +4,7 @@ html{
 }
 
 body{
-    background: url(../images/background3.jpg);
+    background: url(./images/background.jpg);
     background-size: auto;
     
     /*fix for sticky footer*/
@@ -13,41 +13,20 @@ body{
     display: flex;
     flex-direction: column;
 }
+.row{
+    margin-top: 50px;
+}
+.indoCard{
+    margin-top:15px;
+}
 .navbar-brand{
     font-size: 35px;
     margin-right: 5px;
 }
-h1{
-color: black;
-}
-.avatar{
-    border: 3px solid black;
-}
-.fab{
-    font-size: 2.5rem;
-    color: white;
-}
-.fab:hover{
-    color: black;
-}
-.jumbotron{
-    margin-top:30px;
-}
-.inner{
-    overflow: hidden;
-}
-.inner img{
-    transition: all 1.5s ease;
-}
 
-.inner:hover img{
-    transform: sclae(1.5);
-}
 
-footer{
-/*fix for sticky footer*/
-margin-top: auto;
-}
+
+
 
 @media only screen and (max-width: 750px) 
 {
