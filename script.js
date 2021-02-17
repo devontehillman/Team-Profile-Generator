@@ -4,7 +4,7 @@ const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const generateMarkDown = require("./generateMarkDown");
+
 
 const employeePool = [];
 let onOff = true;
@@ -200,7 +200,8 @@ function specialID(currentEmployee) {
       specialAttribute = "Office Number: " + currentEmployee.officeNumber;
       break;
     case "Engineer":
-      specialAttribute = "Github: " + currentEmployee.gitHub;
+      specialAttribute = "Github: " + `<a href="https://github.com/` + currentEmployee.gitHub +`">${currentEmployee.gitHub}</a>`
+      
       break;
     case "Intern":
       specialAttribute = "School: " + currentEmployee.school;
