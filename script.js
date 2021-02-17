@@ -11,202 +11,212 @@ let onOff = true;
 
 // prompts for the specific employees
 function newEmployee() {
-    inquirer
-        .prompt([
-            {
-                type: "list",
-                name: "employeeType",
-                choices: ["Manager", "Engineer", "Intern"],
-            },
-        ])
-        .then((data) => {
-            data.employeeType;
-            switch (data.employeeType) {
-                case "Manager":
-                    setInfoManager();
-                    break;
-                case "Engineer":
-                    setInfoEngineer();
-                    break;
-                case "Intern":
-                    setInfoIntern();
-                    break;
-            }
-        });
+  inquirer
+    .prompt([
+      {
+        type: "list",
+        name: "employeeType",
+        choices: ["Manager", "Engineer", "Intern"],
+      },
+    ])
+    .then((data) => {
+      data.employeeType;
+      switch (data.employeeType) {
+        case "Manager":
+          setInfoManager();
+          break;
+        case "Engineer":
+          setInfoEngineer();
+          break;
+        case "Intern":
+          setInfoIntern();
+          break;
+      }
+    });
 }
 
 function setInfoManager() {
-    inquirer
-        .prompt([
-            {
-                type: "input",
-                name: "name",
-                question: "Manager name",
-            },
-            {
-                type: "input",
-                name: "id",
-                question: "Manager ID",
-            },
-            {
-                type: "input",
-                name: "email",
-                question: "Manager Email",
-            },
-            {
-                type: "input",
-                name: "officeNum",
-                question: "Manager Office Number",
-            },
-        ])
-        .then((data) => {
-            const manager = new Manager(
-                data.name,
-                data.id,
-                data.email,
-                data.officeNum
-            );
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        question: "Manager name",
+      },
+      {
+        type: "input",
+        name: "id",
+        question: "Manager ID",
+      },
+      {
+        type: "input",
+        name: "email",
+        question: "Manager Email",
+      },
+      {
+        type: "input",
+        name: "officeNum",
+        question: "Manager Office Number",
+      },
+    ])
+    .then((data) => {
+      const manager = new Manager(
+        data.name,
+        data.id,
+        data.email,
+        data.officeNum
+      );
 
-            employeePool.push(manager);
-            console.log(employeePool);
-            restart();
-        });
+      employeePool.push(manager);
+      restart();
+    });
 }
 
 function setInfoEngineer() {
-    inquirer
-        .prompt([
-            {
-                type: "input",
-                name: "name",
-                question: "Engineer name",
-            },
-            {
-                type: "input",
-                name: "id",
-                question: "Engineer ID",
-            },
-            {
-                type: "input",
-                name: "email",
-                question: "Engineer Email",
-            },
-            {
-                type: "input",
-                name: "gitHub",
-                question: "Engineer Github username",
-            },
-        ])
-        .then((data) => {
-            const engineer = new Engineer(
-                data.name,
-                data.id,
-                data.email,
-                data.gitHub
-            );
-            employeePool.push(engineer);
-            console.log(employeePool);
-            restart();
-        });
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        question: "Engineer name",
+      },
+      {
+        type: "input",
+        name: "id",
+        question: "Engineer ID",
+      },
+      {
+        type: "input",
+        name: "email",
+        question: "Engineer Email",
+      },
+      {
+        type: "input",
+        name: "gitHub",
+        question: "Engineer Github username",
+      },
+    ])
+    .then((data) => {
+      const engineer = new Engineer(
+        data.name,
+        data.id,
+        data.email,
+        data.gitHub
+      );
+      employeePool.push(engineer);
+      restart();
+    });
 }
 function setInfoIntern() {
-    inquirer
-        .prompt([
-            {
-                type: "input",
-                name: "name",
-                question: "Intern name",
-            },
-            {
-                type: "input",
-                name: "id",
-                question: "Intern ID",
-            },
-            {
-                type: "input",
-                name: "email",
-                question: "Intern Email",
-            },
-            {
-                type: "input",
-                name: "school",
-                question: "Intern School",
-            },
-        ])
-        .then((data) => {
-            const intern = new Intern(data.name, data.id, data.email, data.school);
-            employeePool.push(intern);
-            restart();
-        });
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        name: "name",
+        question: "Intern name",
+      },
+      {
+        type: "input",
+        name: "id",
+        question: "Intern ID",
+      },
+      {
+        type: "input",
+        name: "email",
+        question: "Intern Email",
+      },
+      {
+        type: "input",
+        name: "school",
+        question: "Intern School",
+      },
+    ])
+    .then((data) => {
+      const intern = new Intern(data.name, data.id, data.email, data.school);
+      employeePool.push(intern);
+      restart();
+    });
 }
 
 function restart() {
-    inquirer
-        .prompt([
-            {
-                type: "confirm",
-                name: "newEmployee",
-            },
-        ])
-        .then((data) => {
-            onOff = data.newEmployee;
-            if (onOff === true) {
-                newEmployee();
-            } else {
-                generateMarkdown();
-                return;
-            }
-        });
+  inquirer
+    .prompt([
+      {
+        type: "confirm",
+        name: "newEmployee",
+      },
+    ])
+    .then((data) => {
+      onOff = data.newEmployee;
+      if (onOff === true) {
+        newEmployee();
+      } else {
+        generateMarkdown();
+        return;
+      }
+    });
 }
 
 function generateCards() {
-    let arryToReturn = [];
-    // render each card
-    for (i = 0; i < employeePool.length; i++) {
-        arryToReturn.push(
-    `<div class="col-md-4">
+  let arryToReturn = [];
+  // render each card
+  for (i = 0; i < employeePool.length; i++) {
+    let icon 
+        switch (employeePool[i].getRole()) {
+          case "Manager":
+              icon = `<i class="fas fa-user-tie"></i>`;
+            break;
+          case "Engineer":
+              icon =`<i class="fas fa-cogs"></i>`;
+            break;
+          case "Intern":
+              icon = `<i class="fas fa-book"></i>`;
+            break;
+        }
+    arryToReturn.push(
+      `<div class="col-md-4">
     <div class="card text-black shadow indoCard">
     <div class="card-header bg-dark text-white">
     ${employeePool[i].name}
-    <p class="card-text ">${employeePool[i].getRole()}</p>
+    <p class="card-text "> ${icon} ${employeePool[i].getRole()}</p>
     </div>
     <div class="card-body">
         <p class="card-text">ID:${employeePool[i].id}</p>
-        <p class="card-text">Email:${employeePool[i].email}</p>
+        <p class="card-text">Email:<a href="mailto:${employeePool[i].email}">${employeePool[i].email}</a></p>
         <p class="card-text">${specialID(employeePool[i])}</p>
     </div>
     </div>
     </div>`
-        );
-    }
-    return arryToReturn.join("");
+    );
+  }
+  return arryToReturn.join("");
 }
 
 //function to get role and special identifier
 function specialID(currentEmployee) {
-    let specialAttribute;
-    switch (currentEmployee.getRole()) {
-        case "Manager":
-            specialAttribute = "Office Number: " + currentEmployee.officeNumber;
-            break;
-        case "Engineer":
-            specialAttribute = "Github: " + currentEmployee.gitHub;
-            break;
-        case "Intern":
-            specialAttribute = "School: " + currentEmployee.school;
-            break;
-    }
-    return specialAttribute;
+  let specialAttribute;
+  switch (currentEmployee.getRole()) {
+    case "Manager":
+      specialAttribute = "Office Number: " + currentEmployee.officeNumber;
+      break;
+    case "Engineer":
+      specialAttribute = "Github: " + currentEmployee.gitHub;
+      break;
+    case "Intern":
+      specialAttribute = "School: " + currentEmployee.school;
+      break;
+  }
+  return specialAttribute;
 }
 
 // write the html page
 function generateHTML() {
-    return `<!DOCTYPE html>
+  return `<!DOCTYPE html>
     <html lang="en">
       <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Portfolio Blank</title>
+        <title>My Dev Team</title>
     
         <link
           rel="stylesheet"
@@ -222,8 +232,8 @@ function generateHTML() {
       </head>
     
       <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-warning ">
-          <a class="navbar-brand" href="index.html">My Dev Team</a>
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning nav-custom justify-content-center" >
+        <a class="navbar-brand" href="index.html">My Dev Team</a>
         </nav>
     
         <div class="container">
@@ -253,12 +263,26 @@ function generateHTML() {
 }
 
 function generateMarkdown() {
-    const file = generateHTML();
+  const file = generateHTML();
 
-    fs.writeFile("Index.html", file, (err) =>
-        err ? console.log(err) : console.log("Success!")
-    );
-    module.exports = generateHTML;
+  fs.writeFile("Index.html", file, (err) =>
+    err ? console.log(err) : console.log("Success!")
+  );
+  module.exports = generateHTML;
+}
+
+function favicon() {
+  switch (employeeType) {
+    case "Manager":
+        `<i class="fas fa-user-tie"></i>`;
+      break;
+    case "Engineer":
+        `<i class="fas fa-cogs"></i>`;
+      break;
+    case "Intern":
+        `<i class="fas fa-book"></i>`;
+      break;
+  }
 }
 
 newEmployee();
